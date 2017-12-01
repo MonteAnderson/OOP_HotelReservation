@@ -1,9 +1,9 @@
 package com.hotelres;
 
-public class AccountView {
+public class LoginView {
 
     public void displayInfo() {
-
+        
     }
 
 }
