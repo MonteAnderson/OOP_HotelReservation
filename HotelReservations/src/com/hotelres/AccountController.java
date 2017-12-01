@@ -26,6 +26,6 @@ public class AccountController {
     }
 
     public void setPassword(String newPassword) {
-        
+
     }
 }
