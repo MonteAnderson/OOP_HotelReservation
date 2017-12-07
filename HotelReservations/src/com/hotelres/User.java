@@ -6,6 +6,10 @@ import java.util.Map;
 public class User {
     private Booking[] bookings;
 
+    public User(Booking[] bookings) {
+        this.bookings = bookings;
+    }
+
     public Booking[] getBookings() {
         return bookings;
     }

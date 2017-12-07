@@ -8,6 +8,11 @@ public class HotelListController {
     private Hotel model;
     private ListView view;
 
+    HotelListController(Hotel model, ListView view) {
+        this.model = model;
+        this.view = view;
+    }
+
     public void listController() {
 
     }

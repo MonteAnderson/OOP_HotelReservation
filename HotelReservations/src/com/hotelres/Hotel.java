@@ -9,6 +9,7 @@ public class Hotel {
     private String location;
     private List<Booking> bookings;
 
+    // Constructer? I hardly know 'er!
     public Hotel(int id, String location, List<Booking> bookings) {
         this.id = id;
         this.location = location;

@@ -5,8 +5,9 @@ public class AccountController {
     private Account model;
     private AccountView view;
 
-    public void AccountController() {
-
+    public AccountController(Account model, AccountView view) {
+        this.model = model;
+        this.view = view;
     }
 
     public void updateView() {
