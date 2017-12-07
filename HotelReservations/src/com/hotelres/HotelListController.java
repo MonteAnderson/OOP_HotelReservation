@@ -1,6 +1,7 @@
 package com.hotelres;
 
 import javax.swing.text.html.ListView;
+import java.util.List;
 import java.util.Map;
 
 public class HotelListController {

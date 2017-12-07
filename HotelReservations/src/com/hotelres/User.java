@@ -6,7 +6,7 @@ import java.util.Map;
 public class User {
     private Booking[] bookings;
 
-    public Bookings[] getBookings() {
+    public Booking[] getBookings() {
         return bookings;
     }
 

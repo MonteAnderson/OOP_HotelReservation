@@ -7,10 +7,10 @@ public class Booking{
     private int id;
     private User user;
     private Hotel hotel;
-    private Date checkIn;
-    private Date checkOut;
+    private int checkIn;
+    private int checkOut;
 
-    public Booking(int id, User user, Hotel hotel, Date checkIn, Date checkout) {
+    public Booking(int id, User user, Hotel hotel, int checkIn, int checkOut) {
         this.id = id;
         this.user = user;
         this.hotel = hotel;
@@ -30,19 +30,19 @@ public class Booking{
         return this.hotel;
     }
 
-    public Date getCheckIn() {
+    public int getCheckIn() {
         return this.checkIn;
     }
 
-    public void setCheckIn(Date newCheckIn) {
+    public void setCheckIn(int newCheckIn) {
         this.checkIn = newCheckIn;
     }
 
-    public Date getCheckOut() {
+    public int getCheckOut() {
         return this.checkOut;
     }
 
-    public void setCheckOut(Date newCheckOut) {
+    public void setCheckOut(int newCheckOut) {
         this.checkOut = newCheckOut;
     }
 }
