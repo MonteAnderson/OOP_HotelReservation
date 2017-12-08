@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
 
 public class Main {
 
@@ -13,17 +15,17 @@ public class Main {
 	    String line = "";
 	    HotelListIterator hotels = new HotelListIterator();
 
+
 	    try (BufferedReader br = new BufferedReader(new FileReader(file))){
 	        while((line = br.readLine()) != null){
 	            String[] h = line.split(split);
-	            String location = h[0];
-                String name = h[1];
-                String time = h[2];
-                String rooms = h[3];
-                int id = String.hashCode(name);
-                Hotel hotel = new Hotel(id, name, location, time, rooms);
-
-
+	            int id = h[0].hashCode();
+	            String location = h[1];
+                String name = h[2];
+                int time = Integer.parseInt(h[3]);
+                int rooms = Integer.parseInt(h[4]);
+                List<Booking> bookings = Collections.emptyList();
+                Hotel hotel = new Hotel(id, name, location, time, rooms, bookings);
             }
 
         } catch(IOException e) {
