@@ -6,13 +6,19 @@ import java.util.List;
 public class Hotel {
     // Globies
     private int id;
+    private String name;
     private String location;
+    private int timeAvailable;
+    private int roomsAvailable;
     private List<Booking> bookings;
 
     // Constructor? I hardly know 'er!
-    public Hotel(int id, String location, List<Booking> bookings) {
+    public Hotel(int id, String name, String location, int timeAvailable, int roomsAvailable, List<Booking> bookings) {
         this.id = id;
+        this.name = name;
         this.location = location;
+        this.timeAvailable = timeAvailable;
+        this.roomsAvailable = roomsAvailable;
         this.bookings = bookings;
     }
 
