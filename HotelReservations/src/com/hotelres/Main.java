@@ -13,8 +13,8 @@ public class Main {
 	    String file = "HotelDatabase.csv";
 	    String split = ",";
 	    String line = "";
-	    HotelListIterator hotels = new HotelListIterator();
-
+	    List<Hotel> hotelList = Collections.emptyList();
+	    HotelListIterator hotelIter = new HotelListIterator();
 
 	    try (BufferedReader br = new BufferedReader(new FileReader(file))){
 	        while((line = br.readLine()) != null){
@@ -26,6 +26,7 @@ public class Main {
                 int rooms = Integer.parseInt(h[4]);
                 List<Booking> bookings = Collections.emptyList();
                 Hotel hotel = new Hotel(id, name, location, time, rooms, bookings);
+                hotelList.add(hotel);
             }
 
         } catch(IOException e) {
