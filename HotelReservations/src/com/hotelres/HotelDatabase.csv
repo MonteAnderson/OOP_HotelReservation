@@ -1,5 +1,5 @@
-HotelTestName1,1513036800,256
-HotelTestName2,1512518400,420
-HotelTestName3,1514246400,340
-HotelTestName4,1515110400,1
-NO_ROOM_NOW!!!,1546300800,0
+Denver,DenverHotel,1513036800,256
+Boulder,BoulderHotel,1512518400,420
+San Francisco,SanFranHotel,1514246400,340
+Seattle,SeattleHotel,1515110400,1
+Austin,AustinHotel,1546300800,0
