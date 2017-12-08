@@ -9,7 +9,7 @@ public class Hotel {
     private String location;
     private List<Booking> bookings;
 
-    // Constructer? I hardly know 'er!
+    // Constructor? I hardly know 'er!
     public Hotel(int id, String location, List<Booking> bookings) {
         this.id = id;
         this.location = location;
@@ -30,8 +30,7 @@ public class Hotel {
 
     public Booking createBooking(int checkIn, int checkOut) {
         User user = new User();
-        Hotel hotel = new Hotel();
-        Booking booking = new Booking(id, user, hotel, checkIn, checkOut);
+        return new Booking(id, user, this, checkIn, checkOut);
     }
 
     public void addBookings(Booking book) {
