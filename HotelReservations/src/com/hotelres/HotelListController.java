@@ -27,7 +27,9 @@ public class HotelListController {
     }
 
     public List<Hotel> getHotels(Map<String, String> criteria) {
-        return;
+        if(validateCriteria(criteria)){
+            
+        }
     }
 
     public boolean validateCriteria(Map<String, String> criteria) {
