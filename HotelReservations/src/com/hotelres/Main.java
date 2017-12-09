@@ -39,5 +39,11 @@ public class Main {
 	    while (hotelIter.hasNext()) {
 	        System.out.println(hotelIter.next().getId());
         }
+	//Get User Input
+        Scanner reader = new Scanner(System.in);
+        System.out.println("Enter Search: ");
+        String n = reader.nextLine();
+        System.out.printf("Searching for %s ...", n);
+        reader.close();
     }
 }
