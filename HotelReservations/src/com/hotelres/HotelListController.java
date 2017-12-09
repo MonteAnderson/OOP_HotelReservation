@@ -7,7 +7,7 @@ import java.util.Map;
 public class HotelListController {
     private Hotel model;
     private ListView view;
-    private String[] criterias = new String[] {"location","name","rooms"}
+    private String[] criterias = new String[] {"location","name","rooms"};
 
     HotelListController(Hotel model, ListView view) {
         this.model = model;

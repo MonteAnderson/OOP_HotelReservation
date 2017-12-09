@@ -1,16 +1,18 @@
 package com.hotelres;
 
 import javax.swing.text.html.ListView;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 public class User {
-    private Booking[] bookings;
+    private List<Booking> bookings;
 
-    public User(Booking[] bookings) {
+    public User(List<Booking> bookings) {
         this.bookings = bookings;
     }
 
-    public Booking[] getBookings() {
+    public List<Booking> getBookings() {
         return bookings;
     }
 
@@ -26,7 +28,8 @@ public class User {
 
     }
 
-    public Hotel[] searchHotel(String location) {
-        return Hotel[];
+    public List<Hotel> searchHotel(String location) {
+        List<Hotel> hotelList = new LinkedList<>();
+        return hotelList;
     }
 }

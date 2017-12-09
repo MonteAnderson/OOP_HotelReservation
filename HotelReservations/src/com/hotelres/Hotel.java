@@ -1,5 +1,6 @@
 package com.hotelres;
 
+import java.util.LinkedList;
 import java.util.Map;
 import java.util.List;
 
@@ -68,7 +69,8 @@ public class Hotel {
     }
 
     public Booking createBooking(int checkIn, int checkOut) {
-        User user = new User();
+        List<Booking> emptyBookings = new LinkedList<>();
+        User user = new User(emptyBookings);
         return new Booking(id, user, this, checkIn, checkOut);
     }
 
@@ -81,7 +83,8 @@ public class Hotel {
     }
 
     protected List<Hotel> search(Map<String, String> criteria) {
-
+        List<Hotel> hotelList = new LinkedList<>();
+        return hotelList;
     }
 
     private boolean verifyCard(int number, int cvv, String expire) {
