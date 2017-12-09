@@ -41,6 +41,30 @@ public class Hotel {
     public List<Booking> getBookings() {
         return bookings;
     }
+    
+     public void setId(int i){
+        this.id = i;
+    }
+
+    public void setName(String n){
+        this.name = n;
+    }
+
+    public void setLocation(String l){
+        this.location = l;
+    }
+
+    public void setRoomsAvailable(int r){
+        this.roomsAvailable = r;
+    }
+
+    public void setTimeAvailable(int r){
+        this.timeAvailable = r;
+    }
+
+    public void setBookings(List<Bookings> b){
+        this.bookings = b;
+    }
 
 
     public Booking createBooking(int checkIn, int checkOut) {
