@@ -7,6 +7,7 @@ import java.util.Map;
 public class HotelListController {
     private Hotel model;
     private ListView view;
+    private String[] criterias = new String[] {"location","name","rooms"}
 
     HotelListController(Hotel model, ListView view) {
         this.model = model;
@@ -30,6 +31,17 @@ public class HotelListController {
     }
 
     public boolean validateCriteria(Map<String, String> criteria) {
-        return false;
+        boolean ret = true;
+        for(attr : getCriterias()){
+            if(!criteria.containsKey(attr)){
+                ret = false;
+            }
+        }
+        return ret;
+
+    }
+
+    public String[] getCriterias(){
+        return this.criterias;
     }
 }
