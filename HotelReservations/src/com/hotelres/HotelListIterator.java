@@ -1,4 +1,5 @@
 package com.hotelres;
+
 import java.util.Iterator;
 import java.util.List;
 
@@ -11,8 +12,9 @@ public class HotelListIterator implements Iterator {
         this.hotelList = hL;
         index = 0;
     }
+
     public boolean hasNext(){
-        if ((index + 1) < hotelList.size()){
+        if ((index + 1) <= hotelList.size()){
             return true;
         }
         else
@@ -21,8 +23,9 @@ public class HotelListIterator implements Iterator {
 
     public Hotel next(){
         if (this.hasNext()){
+            Hotel H = hotelList.get(index);
             index++;
-            return hotelList.get(index);
+            return H;
         }
         else
             return null;
