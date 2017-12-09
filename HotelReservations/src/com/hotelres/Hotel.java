@@ -58,16 +58,12 @@ public class Hotel {
         this.roomsAvailable = r;
     }
 
-    public void setTimeAvailable(int r){
-        this.timeAvailable = r;
+    public void setTimeAvailable(int t){
+        this.timeAvailable = t;
     }
 
 
-    public void setBookings(List<Bookings> b){
-        this.bookings = b;
-    }
-
-    public void setBookings(List<Bookings> b){
+    public void setBookings(List<Booking> b){
         this.bookings = b;
     }
 
@@ -94,7 +90,7 @@ public class Hotel {
 
     @Override
     public String toString(){
-        return getName()
+        return getName();
     }
 }
 
