@@ -41,8 +41,8 @@ public class Hotel {
     public List<Booking> getBookings() {
         return bookings;
     }
-    
-     public void setId(int i){
+
+    public void setId(int i){
         this.id = i;
     }
 
@@ -62,10 +62,14 @@ public class Hotel {
         this.timeAvailable = r;
     }
 
+
     public void setBookings(List<Bookings> b){
         this.bookings = b;
     }
 
+    public void setBookings(List<Bookings> b){
+        this.bookings = b;
+    }
 
     public Booking createBooking(int checkIn, int checkOut) {
         User user = new User();
@@ -87,4 +91,10 @@ public class Hotel {
     private boolean verifyCard(int number, int cvv, String expire) {
         return false;
     }
+
+    @Override
+    public String toString(){
+        return getName()
+    }
 }
+
