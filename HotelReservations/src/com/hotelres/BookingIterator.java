@@ -14,7 +14,7 @@ public class BookingIterator implements Iterator {
     }
 
     public boolean hasNext(){
-        if ((index + 1) <  bookingList.size()) {
+        if ((index + 1) <=  bookingList.size()) {
             return true;
         }
         else
@@ -23,8 +23,9 @@ public class BookingIterator implements Iterator {
 
     public Booking next(){
         if (this.hasNext()){
+            Booking B = bookingList.get(index);
             index++;
-            return bookingList.get(index);
+            return B;
         }
         else
             return null;
