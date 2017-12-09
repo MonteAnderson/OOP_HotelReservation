@@ -14,7 +14,6 @@ public class Main {
 	    String split = ",";
 	    String line = "";
 	    List<Hotel> hotelList = Collections.emptyList();
-	    HotelListIterator hotelIter = new HotelListIterator();
 
 	    try (BufferedReader br = new BufferedReader(new FileReader(file))){
 	        while((line = br.readLine()) != null){
@@ -28,6 +27,8 @@ public class Main {
                 Hotel hotel = new Hotel(id, name, location, time, rooms, bookings);
                 hotelList.add(hotel);
             }
+
+            HotelListIterator hotelIter = hotelList.iterator();
 
         } catch(IOException e) {
             e.printStackTrace();
