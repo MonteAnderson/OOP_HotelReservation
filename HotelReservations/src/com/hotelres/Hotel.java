@@ -26,11 +26,20 @@ public class Hotel {
     public int getId() {
         return id;
     }
-    public List<Booking> getBookings() {
-        return bookings;
+    public String getName() {
+        return name;
     }
     public String getLocation() {
         return location;
+    }
+    public int getTimeAvailable() {
+        return timeAvailable;
+    }
+    public int getRoomsAvailable() {
+        return roomsAvailable;
+    }
+    public List<Booking> getBookings() {
+        return bookings;
     }
 
 
