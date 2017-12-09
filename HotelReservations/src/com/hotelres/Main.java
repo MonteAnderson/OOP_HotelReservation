@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 public class Main {
@@ -28,7 +29,7 @@ public class Main {
                 hotelList.add(hotel);
             }
 
-            HotelListIterator hotelIter = hotelList.iterator();
+            HotelListIterator hotelIter = new HotelListIterator();
 
         } catch(IOException e) {
             e.printStackTrace();
