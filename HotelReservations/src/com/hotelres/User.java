@@ -22,7 +22,7 @@ public class User {
     }
 
     public void addBooking(Booking booking) {
-
+        bookings.add(booking);
     }
 
     public void cancelBooking(Booking booking) {
