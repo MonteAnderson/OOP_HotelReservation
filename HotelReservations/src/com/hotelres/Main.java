@@ -113,8 +113,8 @@ public class Main {
                     System.out.println("Version 0.8008135");
                     continue;
                 }
+                
                 else {
-                    System.out.print("testing");
                     System.out.println("ERROR: Unknown Command.");
                     continue;
                 }
