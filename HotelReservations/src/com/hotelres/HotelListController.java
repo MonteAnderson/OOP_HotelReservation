@@ -1,6 +1,7 @@
 package com.hotelres;
 
 import javax.swing.text.html.ListView;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -30,6 +31,8 @@ public class HotelListController {
         if(validateCriteria(criteria)){
 
         }
+        List<Hotel> hotelList = new LinkedList<>();
+        return hotelList;
     }
 
     public boolean validateCriteria(Map<String, String> criteria) {

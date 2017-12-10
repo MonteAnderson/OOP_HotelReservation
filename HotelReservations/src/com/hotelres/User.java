@@ -4,6 +4,7 @@ import javax.swing.text.html.ListView;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 public class User {
     private List<Booking> bookings;
@@ -28,8 +29,15 @@ public class User {
 
     }
 
-    public List<Hotel> searchHotel(String location) {
+    public List<Hotel> searchHotel(HotelListIterator hotelIter, String location) {
         List<Hotel> hotelList = new LinkedList<>();
+        while (hotelIter.hasNext()) {
+            Hotel nextHotel = hotelIter.next();
+            if (Pattern.matches("(?i)^"+location+"[a-zA-z\\s]*", nextHotel.getLocation())) {
+                hotelList.add(nextHotel);
+            }
+        }
+        System.out.println(hotelList);
         return hotelList;
     }
 }

@@ -43,11 +43,6 @@ public class Main {
                 e.printStackTrace();
             }
 
-            HotelListIterator hotelIter = new HotelListIterator(hotelList);
-            while (hotelIter.hasNext()) {
-                System.out.println(hotelIter.next().getId());
-            }
-
             while (userQuit == false) {
                 //Get User Input
                 System.out.println("\nWelcome to the Hotel Reservation System! Type -help to see commands.");
@@ -57,9 +52,15 @@ public class Main {
                     System.out.println("\nCommands are: -help | -quit | -search | -book | -cancel | -displayBookings | -version ");
                     continue;
                 }
-
+                
                 else if (userInput.equals("-search")){
-                    continue;
+                    HotelListIterator hotelIter = new HotelListIterator(hotelList);
+
+                    System.out.println("Enter a location: ");
+                    String loc = reader.nextLine();
+                    reader.close();
+
+                    user.searchHotel(hotelIter, loc);
                 }
 
                 else if (userInput.equals("-book")){
