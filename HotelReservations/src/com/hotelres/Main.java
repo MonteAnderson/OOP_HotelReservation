@@ -113,7 +113,6 @@ public class Main {
                         System.out.print("Failed Verification");
                     }
 
-
                     continue;
                 }
 
@@ -137,10 +136,6 @@ public class Main {
                     continue;
                 }
 
-                else if (userInput.equals("-myBookings")){
-                    //Display current list of users bookings
-                    continue;
-                }
                 else if (userInput.equals("-quit")){
                     userQuit = true;
                     reader.close();
