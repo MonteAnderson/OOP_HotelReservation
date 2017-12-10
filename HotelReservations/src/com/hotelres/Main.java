@@ -7,12 +7,13 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.time.Instant;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Main {
 
     public static void main(String[] args) {
 
-	    String file = "./HotelDatabase.csv";
+	    String file = "HotelDatabase.csv";
 	    String split = ",";
 	    String line = "";
 	    Boolean userQuit = false;
@@ -30,7 +31,7 @@ public class Main {
                     int time = Integer.parseInt(h[2]);
                     int rooms = Integer.parseInt(h[3]);
                     int id = name.hashCode();
-                    List<Booking> bookings = Collections.emptyList();
+                    List<Booking> bookings = new LinkedList<Booking>();
                     Hotel hotel = new Hotel(id, name, location, time, rooms, bookings);
                     hotelList.add(hotel);
                 }
@@ -67,7 +68,8 @@ public class Main {
                             System.out.printf("%s | %s | Rooms available: %d | Earliest check-in date: %s\n",
                                     nextHotel.getLocation(), nextHotel.getName(), nextHotel.getRoomsAvailable(), nextTime.toString());
                         }
-                    } else {
+                    }
+                    else {
                         System.out.println("No hotels available for your query.");
                     }
                 }
@@ -77,11 +79,26 @@ public class Main {
                     //System.out.print("Enter the hotel name: ");
                     String hotelBookedName = "Nativ";
 
-                    int checkInDate = 1513036800;
-                    int checkOutDate = 1513036848;
-                    Hotel h = hotelList.get(0);
-                    System.out.print(h);
-                    user.bookHotel(h, checkInDate, checkOutDate);
+                    System.out.print("Input Month: ");
+                    int checkInDate = reader.nextInt();
+                    reader.nextLine();
+
+                    System.out.print("Input Day: ");
+                    int checkOutDate = reader.nextInt();
+                    reader.nextLine();
+
+                    System.out.println("Input Hotel: ");
+                    String checkHotelName = reader.nextLine();
+                    System.out.print(checkHotelName);
+
+                    System.out.println("Please Input Card Number (No Dashes): ");
+
+
+                   List<Hotel> results = hotelList.stream()
+                            .filter(h -> Objects.equals(h.getName(), checkHotelName))
+                            .collect(Collectors.toList());
+                    System.out.print(results.get(0));
+                    user.bookHotel(results.get(0), checkInDate, checkOutDate);
 
                     continue;
                 }
@@ -118,7 +135,6 @@ public class Main {
                     System.out.println("ERROR: Unknown Command.");
                     continue;
                 }
-
 
             }
     }
