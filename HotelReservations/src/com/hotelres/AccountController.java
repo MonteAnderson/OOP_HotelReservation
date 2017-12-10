@@ -15,7 +15,7 @@ public class AccountController {
     }
 
     public String getName(){
-
+        return "";
     }
 
     public void setName(String newName) {
@@ -23,7 +23,7 @@ public class AccountController {
     }
 
     public String getPassword() {
-
+        return "";
     }
 
     public void setPassword(String newPassword) {
