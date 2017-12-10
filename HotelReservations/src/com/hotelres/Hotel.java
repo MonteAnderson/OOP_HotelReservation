@@ -92,7 +92,7 @@ public class Hotel {
         return hotelList;
     }
 
-    private boolean verifyCard(String number, String cvv, String expire) {
+    public boolean verifyCard(String number, String cvv, String expire) {
         //first check if the card is expired
         try {
             //parse for expiration month and year
@@ -105,10 +105,13 @@ public class Hotel {
             int currentYear = Calendar.getInstance().get(Calendar.YEAR);
 
             //check that card hasn't expired
-            if (expirationYear < currentYear)
+            if (expirationYear < currentYear){
                 return false;
-            else if (expirationYear == currentYear && expirationMonth < currentMonth)
+            }
+            else if (expirationYear == currentYear && expirationMonth < currentMonth) {
                 return false;
+            }
+
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Please enter a valid expiration date in the format \'month/year\'");
             return false;

@@ -87,18 +87,33 @@ public class Main {
                     int checkOutDate = reader.nextInt();
                     reader.nextLine();
 
-                    System.out.println("Input Hotel: ");
+                    System.out.print("Input Hotel: ");
                     String checkHotelName = reader.nextLine();
-                    System.out.print(checkHotelName);
 
-                    System.out.println("Please Input Card Number (No Dashes): ");
+                    System.out.print("Please Input Card Number (No Dashes): ");
+                    String cnum = reader.nextLine();
+
+                    System.out.print("Please input cvv: ");
+                    String cvv = reader.nextLine();
+
+                    System.out.print("Please input expiration date (MM/YY): ");
+                    String date = reader.nextLine();
+
+
 
 
                    List<Hotel> results = hotelList.stream()
                             .filter(h -> Objects.equals(h.getName(), checkHotelName))
                             .collect(Collectors.toList());
-                    System.out.print(results.get(0));
-                    user.bookHotel(results.get(0), checkInDate, checkOutDate);
+
+
+                    if(results.get(0).verifyCard(cnum, cvv, date)){
+                        user.bookHotel(results.get(0), checkInDate, checkOutDate);
+                    }
+                    else {
+                        System.out.print("Failed Verification");
+                    }
+
 
                     continue;
                 }
