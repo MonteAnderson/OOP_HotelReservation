@@ -28,13 +28,12 @@ public class HotelListController {
 
     public List<Hotel> getHotels(Map<String, String> criteria) {
         if(validateCriteria(criteria)){
-            
         }
     }
 
     public boolean validateCriteria(Map<String, String> criteria) {
         boolean ret = true;
-        for(attr : getCriterias()){
+        for(String attr : criterias){
             if(!criteria.containsKey(attr)){
                 ret = false;
             }
