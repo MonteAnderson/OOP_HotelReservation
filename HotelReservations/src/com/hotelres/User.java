@@ -17,8 +17,11 @@ public class User {
         return bookings;
     }
 
-    public void bookHotel(Hotel hotel) {
-
+    public void bookHotel(Hotel hotel, int checkIn, int checkOut) {
+        int id = (int) Math.random() * 1000000;
+        Booking b = new Booking(id, this, hotel, checkIn, checkOut);
+        addBooking(b);
+        hotel.addBookings(b);
     }
 
     public void addBooking(Booking booking) {
