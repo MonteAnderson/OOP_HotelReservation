@@ -1,5 +1,6 @@
 package com.hotelres;
 
+import java.util.Calendar;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.List;
@@ -87,8 +88,44 @@ public class Hotel {
         return hotelList;
     }
 
-    private boolean verifyCard(int number, int cvv, String expire) {
-        return false;
+    private boolean verifyCard(String number, String cvv, String expire) {
+        //first check if the card is expired
+        try {
+            //parse for expiration month and year
+            String[] data = expire.split("/");
+            int expirationMonth = Integer.parseInt(data[0]);
+            int expirationYear = Integer.parseInt(data[1]);
+
+            //get current month and year
+            int currentMonth = Calendar.getInstance().get(Calendar.MONTH) + 1;
+            int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+
+            //check that card hasn't expired
+            if (expirationYear < currentYear)
+                return false;
+            else if (expirationYear == currentYear && expirationMonth < currentMonth)
+                return false;
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Please enter a valid expiration date in the format \'month/year\'");
+            return false;
+        }
+
+        //check card number validity using Luhn Algorithm
+        int sum = 0;
+        boolean oddIndex = false;
+        int cardLength = number.length();
+
+        for (int x = cardLength - 1; x >= 0; x--) {
+            int n = Integer.parseInt(number.substring(x, x + 1));
+            if (oddIndex) {
+                n = n * 2;
+                if (n > 9)
+                    n = (n % 10) + 1;
+            }
+            sum += n;
+            oddIndex = !oddIndex;
+        }
+        return (sum % 10 == 0);
     }
 
     @Override
