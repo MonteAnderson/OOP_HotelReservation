@@ -76,9 +76,11 @@ public class Hotel {
     }
 
     public void addBookings(Booking book) {
+        int rooms = getRoomsAvailable();
         List<Booking> b = getBookings();
         b.add(book);
         setBookings(b);
+        setRoomsAvailable(rooms - 1);
     }
 
     public void deleteBooking(Booking booking) {

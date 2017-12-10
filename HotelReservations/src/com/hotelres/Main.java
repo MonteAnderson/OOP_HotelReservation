@@ -72,7 +72,7 @@ public class Main {
                     }
                 }
 
-		else if (userInput.equals("-book")){
+		        else if (userInput.equals("-book")){
 
                     //System.out.print("Enter the hotel name: ");
                     String hotelBookedName = "Nativ";
