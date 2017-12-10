@@ -45,4 +45,8 @@ public class Booking{
     public void setCheckOut(int newCheckOut) {
         this.checkOut = newCheckOut;
     }
+    @Override
+    public String toString(){
+        return getHotel().toString();
+    }
 }
