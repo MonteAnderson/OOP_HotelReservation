@@ -130,7 +130,7 @@ public class Hotel {
 
     @Override
     public String toString(){
-        return Integer.toString(getId());
+        return "Location: " + getLocation() + " | Name: " + getName()+ " | Time: " + getTimeAvailable()+ " | Rooms: " + getRoomsAvailable();
     }
 }
 
