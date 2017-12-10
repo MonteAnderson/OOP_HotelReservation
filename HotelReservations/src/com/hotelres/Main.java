@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Scanner;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -16,7 +17,9 @@ public class Main {
 	    String split = ",";
 	    String line = "";
 	    List<Hotel> hotelList = new LinkedList<>();
-
+	    Boolean userQuit = false;
+        Scanner reader = new Scanner(System.in);
+        User user = new User(new LinkedList<Booking>());
 	    try (BufferedReader br = new BufferedReader(new FileReader(file))){
 	        while((line = br.readLine()) != null){
 	            String[] h = line.split(split);
@@ -39,11 +42,44 @@ public class Main {
 	    while (hotelIter.hasNext()) {
 	        System.out.println(hotelIter.next().getId());
         }
-	//Get User Input
-        Scanner reader = new Scanner(System.in);
-        System.out.println("Enter Search: ");
-        String n = reader.nextLine();
-        System.out.printf("Searching for %s ...", n);
-        reader.close();
+	    while (userQuit == false) {
+                //Get User Input
+                System.out.println("\nWelcome to the Hotel Reservation System! Type -help to see commands.");
+                String n = reader.nextLine();
+
+                if (n.equals("-help") || n.equals("-halp") || n.equals("--help")){
+                    System.out.println("\nCommands are: -help | -quit | -search | -book | -cancel | -displayBookings | -version ");
+                    continue;
+                }
+
+                if (n.equals("-search")){
+                    continue;
+                }
+
+                if (n.equals("-book")){
+                    continue;
+                }
+
+                if (n.equals("-cancel")){
+                    continue;
+                }
+
+                if (n.equals("-displayBookings")){
+                    continue;
+                }
+
+                if (n.equals("-quit")){
+                    userQuit = true;
+                    reader.close();
+                    continue;
+                }
+
+                if (n.equals("-version")){
+                    System.out.println("Version 0.8008135");
+                    continue;
+                }
+                System.out.printf("Searching for %s ...", n);
+
+            }
     }
 }
