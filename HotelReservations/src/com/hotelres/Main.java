@@ -17,7 +17,8 @@ public class Main {
 	    String split = ",";
 	    String line = "";
 	    List<Hotel> hotelList = new LinkedList<>();
-
+	    Boolean userQuit = false;
+       	    Scanner reader = new Scanner(System.in);
 	    try (BufferedReader br = new BufferedReader(new FileReader(file))){
 	        while((line = br.readLine()) != null){
 	            String[] h = line.split(split);
