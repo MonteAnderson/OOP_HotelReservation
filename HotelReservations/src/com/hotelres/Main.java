@@ -18,7 +18,8 @@ public class Main {
 	    String line = "";
 	    List<Hotel> hotelList = new LinkedList<>();
 	    Boolean userQuit = false;
-       	    Scanner reader = new Scanner(System.in);
+        Scanner reader = new Scanner(System.in);
+        User user = new User(new LinkedList<Booking>());
 	    try (BufferedReader br = new BufferedReader(new FileReader(file))){
 	        while((line = br.readLine()) != null){
 	            String[] h = line.split(split);
@@ -41,7 +42,7 @@ public class Main {
 	    while (hotelIter.hasNext()) {
 	        System.out.println(hotelIter.next().getId());
         }
-	while (userQuit == false) {
+	    while (userQuit == false) {
                 //Get User Input
                 System.out.println("\nWelcome to the Hotel Reservation System! Type -help to see commands.");
                 String n = reader.nextLine();
