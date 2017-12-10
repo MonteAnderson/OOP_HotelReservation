@@ -46,7 +46,6 @@ public class User {
                 hotelList.add(nextHotel);
             }
         }
-        System.out.println(hotelList);
         return hotelList;
     }
 }

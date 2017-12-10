@@ -5,11 +5,8 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
+import java.time.Instant;
+import java.util.*;
 
 public class Main {
 
@@ -34,7 +31,6 @@ public class Main {
                     int rooms = Integer.parseInt(h[3]);
                     int id = name.hashCode();
                     List<Booking> bookings = Collections.emptyList();
-                    System.out.printf("location: %s,\tname: %s,\ttime: %d,\trooms: %d,\tid: %d\n", location, name, time, rooms, id);
                     Hotel hotel = new Hotel(id, name, location, time, rooms, bookings);
                     hotelList.add(hotel);
                 }
@@ -52,15 +48,28 @@ public class Main {
                     System.out.println("\nCommands are: -help | -quit | -search | -book | -cancel | -displayBookings | -version ");
                     continue;
                 }
-                
+
                 else if (userInput.equals("-search")){
                     HotelListIterator hotelIter = new HotelListIterator(hotelList);
 
                     System.out.println("Enter a location: ");
                     String loc = reader.nextLine();
-                    reader.close();
 
-                    user.searchHotel(hotelIter, loc);
+                    // Search for hotel
+                    System.out.printf("Searching for \"%s\"...\n", loc);
+                    List<Hotel> hotelsAvailable = user.searchHotel(hotelIter, loc);
+                    if (hotelsAvailable.size() > 0) {
+                        System.out.println("Hotels in available for booking:");
+                        HotelListIterator availIter = new HotelListIterator(hotelsAvailable);
+                        while (availIter.hasNext()) {
+                            Hotel nextHotel = availIter.next();
+                            Date nextTime = Date.from(Instant.ofEpochSecond(nextHotel.getTimeAvailable()));
+                            System.out.printf("%s | %s | Rooms available: %d | Earliest check-in date: %s\n",
+                                    nextHotel.getLocation(), nextHotel.getName(), nextHotel.getRoomsAvailable(), nextTime.toString());
+                        }
+                    } else {
+                        System.out.println("No hotels available for your query.");
+                    }
                 }
 
                 else if (userInput.equals("-book")){
@@ -98,7 +107,7 @@ public class Main {
                     System.out.println("ERROR: Unknown Command.");
                     continue;
                 }
-                //System.out.printf("Searching for %s ...", n);
+
 
             }
     }
