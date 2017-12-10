@@ -79,11 +79,11 @@ public class Main {
                     //System.out.print("Enter the hotel name: ");
                     String hotelBookedName = "Nativ";
 
-                    System.out.print("Input Month: ");
+                    System.out.print("Input checkin date (MM/DD): ");
                     int checkInDate = reader.nextInt();
                     reader.nextLine();
 
-                    System.out.print("Input Day: ");
+                    System.out.print("Input checkout date (MM/DD): ");
                     int checkOutDate = reader.nextInt();
                     reader.nextLine();
 
@@ -98,7 +98,6 @@ public class Main {
 
                     System.out.print("Please input expiration date (MM/YY): ");
                     String date = reader.nextLine();
-
 
 
 
@@ -118,7 +117,14 @@ public class Main {
                     continue;
                 }
 
-                else if (userInput.equals("-cancel")){
+                else if (userInput.equals("-cancelBooking")){
+                    System.out.print("Please Enter a hotel name: ");
+                    String cancel = reader.nextLine();
+                    List<Booking> results = user.getBookings().stream()
+                            .filter(b -> Objects.equals(b.getHotel().getName(), cancel))
+                            .collect(Collectors.toList());
+                    user.cancelBooking(results.get(0));
+
                     continue;
                 }
 

@@ -36,6 +36,7 @@ public class User {
             Booking b = iterator.next();
             if (booking.getID() == b.getID())
                 bookings.remove(b);
+                booking.getHotel().deleteBooking(booking);
         }
     }
 

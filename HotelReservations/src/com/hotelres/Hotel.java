@@ -1,9 +1,6 @@
 package com.hotelres;
 
-import java.util.Calendar;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.List;
+import java.util.*;
 
 public class Hotel {
     // Globies
@@ -84,6 +81,14 @@ public class Hotel {
     }
 
     public void deleteBooking(Booking booking) {
+        int rooms = getRoomsAvailable();
+        BookingIterator iterator = new BookingIterator(getBookings());
+        while (iterator.hasNext()) {
+            Booking b = iterator.next();
+            if (booking.getID() == b.getID())
+                bookings.remove(b);
+                setRoomsAvailable(rooms + 1);
+        }
 
     }
 
