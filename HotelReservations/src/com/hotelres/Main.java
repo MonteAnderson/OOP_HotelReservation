@@ -72,7 +72,17 @@ public class Main {
                     }
                 }
 
-                else if (userInput.equals("-book")){
+		else if (userInput.equals("-book")){
+
+                    //System.out.print("Enter the hotel name: ");
+                    String hotelBookedName = "Nativ";
+
+                    int checkInDate = 1513036800;
+                    int checkOutDate = 1513036848;
+                    Hotel h = hotelList.get(0);
+                    System.out.print(h);
+                    user.bookHotel(h, checkInDate, checkOutDate);
+
                     continue;
                 }
 
