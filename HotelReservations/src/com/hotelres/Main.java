@@ -114,6 +114,7 @@ public class Main {
                     continue;
                 }
                 else {
+                    System.out.print("testing");
                     System.out.println("ERROR: Unknown Command.");
                     continue;
                 }
