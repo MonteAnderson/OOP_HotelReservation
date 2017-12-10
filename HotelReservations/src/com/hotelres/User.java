@@ -1,6 +1,7 @@
 package com.hotelres;
 
 import javax.swing.text.html.ListView;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -29,7 +30,12 @@ public class User {
     }
 
     public void cancelBooking(Booking booking) {
-
+        BookingIterator iterator = new BookingIterator(bookings);
+        while (iterator.hasNext()) {
+            Booking b = iterator.next();
+            if (booking.getID() == b.getID())
+                bookings.remove(b);
+        }
     }
 
     public List<Hotel> searchHotel(HotelListIterator hotelIter, String location) {
