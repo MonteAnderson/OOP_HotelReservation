@@ -101,7 +101,7 @@ public class Hotel {
         //first check if the card is expired
         try {
             //parse for expiration month and year
-            String[] data = expire.split("/");
+            String[] data = expire.split("/|-");
             int expirationMonth = Integer.parseInt(data[0]);
             int expirationYear = Integer.parseInt(data[1]);
 
@@ -123,6 +123,7 @@ public class Hotel {
         }
 
         //check card number validity using Luhn Algorithm
+        number = number.replaceAll("-", "");
         int sum = 0;
         boolean oddIndex = false;
         int cardLength = number.length();

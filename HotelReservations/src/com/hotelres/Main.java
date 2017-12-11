@@ -103,7 +103,7 @@ public class Main {
                     System.out.print("Input checkout date (YYYY-MM-DD): ");
                     int checkOutDate = toIntExact(Date.from(LocalDate.parse(reader.nextLine()).atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime()/1000);
 
-                    System.out.print("Please Input Card Number (No Dashes): ");
+                    System.out.print("Please Input Card Number: ");
                     String cnum = reader.nextLine();
 
                     System.out.print("Please input cvv: ");
