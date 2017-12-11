@@ -99,6 +99,7 @@ public class Main {
                     }
 
                     System.out.print("Input checkin date (DD-MM-YYYY): ");
+                    // Convert string to Date object with the system time zone. Then, convert that to a unix time int
                     int checkInDate = toIntExact(Date.from(LocalDate.parse(reader.nextLine(), DateTimeFormatter.ofPattern("dd-MM-yyyy")).atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime()/1000);
 
                     System.out.print("Input checkout date (DD-MM-YYYY): ");
