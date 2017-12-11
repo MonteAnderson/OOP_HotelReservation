@@ -6,8 +6,12 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.*;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+import static java.lang.Math.toIntExact;
 
 public class Main {
 
@@ -76,19 +80,28 @@ public class Main {
 
 		        else if (userInput.equals("-book")){
 
-                    //System.out.print("Enter the hotel name: ");
-                    String hotelBookedName = "Nativ";
-
-                    System.out.print("Input checkin date (MM/DD): ");
-                    int checkInDate = reader.nextInt();
-                    reader.nextLine();
-
-                    System.out.print("Input checkout date (MM/DD): ");
-                    int checkOutDate = reader.nextInt();
-                    reader.nextLine();
-
-                    System.out.print("Input Hotel: ");
+                    System.out.print("Enter hotel name: ");
                     String checkHotelName = reader.nextLine();
+
+                    HotelListIterator hotelIter = new HotelListIterator(hotelList);
+                    List<Hotel> resultsList = new LinkedList<>();
+                    while (hotelIter.hasNext()) {
+                        Hotel nextHotel = hotelIter.next();
+                        if (Pattern.matches("(?i)^"+checkHotelName+"[a-zA-z\\s]*", nextHotel.getName())) {
+                            resultsList.add(nextHotel);
+                        }
+                    }
+
+                    if (resultsList.size() <= 0) {
+                        System.out.println("No hotels found for your query");
+                        continue;
+                    }
+
+                    System.out.print("Input checkin date (YYYY-MM-DD): ");
+                    int checkInDate = toIntExact(Date.from(LocalDate.parse(reader.nextLine()).atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime()/1000);
+
+                    System.out.print("Input checkout date (YYYY-MM-DD): ");
+                    int checkOutDate = toIntExact(Date.from(LocalDate.parse(reader.nextLine()).atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime()/1000);
 
                     System.out.print("Please Input Card Number (No Dashes): ");
                     String cnum = reader.nextLine();
@@ -100,14 +113,8 @@ public class Main {
                     String date = reader.nextLine();
 
 
-
-                   List<Hotel> results = hotelList.stream()
-                            .filter(h -> Objects.equals(h.getName(), checkHotelName))
-                            .collect(Collectors.toList());
-
-
-                    if(results.get(0).verifyCard(cnum, cvv, date)){
-                        user.bookHotel(results.get(0), checkInDate, checkOutDate);
+                    if(resultsList.get(0).verifyCard(cnum, cvv, date)){
+                        user.bookHotel(resultsList.get(0), checkInDate, checkOutDate);
                     }
                     else {
                         System.out.print("Failed Verification");
