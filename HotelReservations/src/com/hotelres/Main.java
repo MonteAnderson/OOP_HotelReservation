@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -97,11 +98,11 @@ public class Main {
                         continue;
                     }
 
-                    System.out.print("Input checkin date (YYYY-MM-DD): ");
-                    int checkInDate = toIntExact(Date.from(LocalDate.parse(reader.nextLine()).atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime()/1000);
+                    System.out.print("Input checkin date (DD-MM-YYYY): ");
+                    int checkInDate = toIntExact(Date.from(LocalDate.parse(reader.nextLine(), DateTimeFormatter.ofPattern("dd-MM-yyyy")).atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime()/1000);
 
-                    System.out.print("Input checkout date (YYYY-MM-DD): ");
-                    int checkOutDate = toIntExact(Date.from(LocalDate.parse(reader.nextLine()).atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime()/1000);
+                    System.out.print("Input checkout date (DD-MM-YYYY): ");
+                    int checkOutDate = toIntExact(Date.from(LocalDate.parse(reader.nextLine(), DateTimeFormatter.ofPattern("dd-MM-yyyy")).atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime()/1000);
 
                     System.out.print("Please Input Card Number: ");
                     String cnum = reader.nextLine();
@@ -109,7 +110,7 @@ public class Main {
                     System.out.print("Please input cvv: ");
                     String cvv = reader.nextLine();
 
-                    System.out.print("Please input expiration date (MM/YY): ");
+                    System.out.print("Please input expiration date (MM/YYYY): ");
                     String date = reader.nextLine();
 
 
